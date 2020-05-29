@@ -127,12 +127,15 @@ header{
         margin-left: 114px;
         @include for-xxl{
             margin-left: 30px;
+            width: 100%;
+            margin-right: 30px;
         }
         @include for-md{
             display: none;
             position: absolute;
             padding: 10px;
             margin-left: 0;
+            margin-right: 0;
             width: 100%;
             right: -10px;
             top: 105%;
@@ -147,6 +150,9 @@ header{
                     font-size: 14px;
                     line-height: 18px;
                 }
+            }
+            @include for-xxl{
+                justify-content: space-between;
             }
             @include for-md{
                 margin-bottom: 20px !important;
@@ -164,10 +170,19 @@ header{
     &__call-block{
         margin-left: auto;
         margin-top: -31px;
+        @include for-xxl{
+            max-width: 248px;
+            width: 100%;
+        }
+        @include for-xl{
+            max-width: 200px;
+        }
         @include for-md{
             display: flex;
             flex-direction: column;
             margin-top: 0;
+            max-width: 100%;
+            
         }
         
     }
@@ -407,28 +422,32 @@ header{
     }
     &__item{
         display: flex;
-        align-items: center;
         @include for-md{
             flex-direction: column;
         }
     }
+    .swiper-slide{
+        display: flex;
+        height: auto;
+    }
     &__img-container{
         display: block;
         width: 50%;
-        height: 481px;
         @include for-md{
             width: 100%;
-            height: auto;
+            height: 300px;
         }
     }
     &__img{
         display: block;
         height: 100%;
         width: 100%;
-        object-fit: cover;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     &__text-container{
-        padding: 95px 100px 176px 71px;
+        padding: 95px 100px 70px 71px;
         width: 50%;
         min-height: 481px;
         box-sizing: border-box;
@@ -638,7 +657,7 @@ header{
 .services{
     padding: 0 100px 129px;
     @include for-md{
-        padding: 32px 15px 67px;
+        padding: 32px 0 67px;
     }
     &__title{
         text-align: center;
@@ -669,6 +688,7 @@ header{
             margin-right: 0 !important;
             margin-bottom: 26px;
             box-sizing: border-box;
+            padding-right: 20px;
         }
     }
     .swiper-button-next{
@@ -735,7 +755,7 @@ header{
     }
     &__img{
         @include for-md{
-            height: 70%;
+            height: 60%;
         }
     }
     &__text{
@@ -800,6 +820,13 @@ header{
         @include for-lit-mob{
             padding-right: 10px;
         }
+    }
+    &__invited{
+        display: block;
+        font-size: 13px;
+        line-height: 17px;
+        text-align: center;
+        color: $red;
     }
     
 }
@@ -1027,7 +1054,7 @@ header{
         }
     }
 }
-.contacs{
+.contacts{
     padding-top: 48px;
     @include for-tiny-tablet{
         padding-top: 34px;
@@ -1047,6 +1074,7 @@ header{
         font-size: 36px;
         line-height: 40px;
         font-weight: 500;
+        text-align: center;
         &--last{
             margin-top: 140px;
             font-weight: 700;
@@ -1066,6 +1094,7 @@ header{
         font-weight: 500;
         font-size: 28px;
         line-height: 32px;
+        text-align: center;
         &--blue{
             color: $blue;
         }
@@ -1133,7 +1162,7 @@ header{
         }
         @include for-tiny-tablet{
             margin-bottom: 10px;
-            padding-bottom: 0;
+            padding-bottom: 5px;
             font-size: 25px;
             line-height: 28px;
         }
