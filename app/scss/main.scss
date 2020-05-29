@@ -1,0 +1,1577 @@
+@import "_vars";
+@import "_libs";
+@import "_fonts";
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none !important;
+    color: $black;
+}
+html{
+    height: 100%;
+}
+h1{
+    margin: 0;
+}
+body{
+    height: 100%;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 24px;
+    line-height: 27px;
+    
+}
+a{
+   cursor: pointer;
+   text-decoration: none;
+   color: $black;
+}
+ul{
+    list-style: none;
+}
+button{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+header{
+    /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+    flex: 0 0 auto;
+ }
+ .main{
+    /* 1 flex-grow, 0 flex-shrink, auto flex-basis */
+    flex: 1 0 auto;
+ }
+ footer{
+    /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+    flex: 0 0 auto;
+ }
+.nav-toggle {
+    display: none; 
+    position: relative;
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid transparent;
+    z-index: 5;
+    @include for-md{
+        display: block;
+    }
+}
+.nav-toggle:focus {outline-width: 0;}
+.nav-toggle [class*='bar-'] {background-color: $blue; display: block;-webkit-transform: rotate(0deg);transform: rotate(0deg);-webkit-transition: .2s ease all;transition: .2s ease all;height: 3px;width: 17px;margin-bottom: 2px;}
+.nav-toggle .bar-bot {margin-bottom: 0;}
+.opened .bar-top {background-color: $blue; -webkit-transform: rotate(45deg);transform: rotate(45deg);-webkit-transform-origin: 0% 50%;transform-origin: 0% 50%;}
+.opened .bar-mid {opacity: 0;}
+.opened .bar-bot {background-color: $blue; -webkit-transform: rotate(45deg);transform: rotate(-45deg);-webkit-transform-origin: 15% 95%;transform-origin: 15% 95%;}
+.wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @include for-md(){
+        overflow-x: hidden;
+    }
+}
+.container{
+    position: relative;
+    max-width: 1817px;
+    margin: 0 auto;
+    padding: 0 15px;
+    &--flex{
+        display: flex;
+    }
+    &--align-center{
+        align-items: center;
+    }
+    &--space-between{
+        justify-content: space-between;
+    }
+    &--flex-wrap{
+        flex-wrap: wrap;
+    }
+    &--mini-p{
+        @include for-tiny-tablet{
+            padding: 0 8px;
+        }
+    }
+}
+.header{
+    padding: 40px 0 11px;
+    @include for-md{
+        padding-top: 10px;
+    }
+    &__logo{
+        @include for-xl{
+            display: block;
+            max-width: 130px;
+            flex-shrink: 0;
+        }
+        @include for-lit-md{
+            max-width: 110px;
+        }
+        img{
+            @include for-xl{
+                display: block;
+                width: 100%;
+                flex-shrink: 0;
+            }
+            @include for-lit-md{
+                display: block;
+                width: 100%;
+                flex-shrink: 0;
+            }
+        }
+    }
+    &__menu{
+        margin-left: 114px;
+        @include for-xxl{
+            margin-left: 30px;
+        }
+        @include for-md{
+            display: none;
+            position: absolute;
+            padding: 10px;
+            margin-left: 0;
+            width: 100%;
+            right: -10px;
+            top: 105%;
+            background-color: $white;
+            border-top: 3px solid $blue;
+            border-radius: 10px;
+            z-index: 2;
+        }
+        ul{
+            a{
+                @include for-xl{
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+            @include for-md{
+                margin-bottom: 20px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+        }
+        li + li{
+            @include for-md{
+                margin-left: 0 !important;
+            }
+        }
+        
+    }
+    &__call-block{
+        margin-left: auto;
+        margin-top: -31px;
+        @include for-md{
+            display: flex;
+            flex-direction: column;
+            margin-top: 0;
+        }
+        
+    }
+}
+.logo{
+    width: 213px;
+    height: 189px;
+    @include for-lit-md(){
+        height: 97px;
+    }
+    img{
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        object-position: left;
+    }
+}
+.menu{
+    
+    ul{
+        display: flex;
+        align-items: center;
+        
+    }
+    li + li{
+        margin-left: 55px;
+        @include for-xxl{
+            margin-left: 20px;
+        }
+        @include for-xl{
+            margin-left: 12px;
+        }
+        
+    }
+    a{
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        transition: .3s;
+        &:hover{
+            color: $blue;
+        }
+    }
+}
+.number{
+    font-size: 24px;
+    line-height: 27px;
+    text-align: right;
+    font-weight: 700;
+    &:hover{
+        text-decoration: underline;
+    }
+    &--blue{
+        color: $blue;
+    }
+    &--white{
+        color: $white;
+    }
+    &--big{
+        font-size: 56px;
+        line-height: 60px;
+        @include for-md(){
+            font-size: 40px;
+            line-height: 43px;
+        }
+        @include for-sm(){
+            font-size: 25px;
+            line-height: 28px;
+        }
+        @include for-tiny-tablet(){
+            font-size: 20px;
+            line-height: 23px;
+        }
+    }
+}
+.call-block{
+    @include for-md{
+        display: none;
+    }
+    &__number{
+        display: block;
+        margin-bottom: 26px;
+        @include for-xl{
+            margin-bottom: 10px;
+        }
+    }
+    &__button{
+        @include for-xl{
+            margin-left: 10px;
+            padding: 10px !important;
+            font-size: 16px !important;
+        }
+    }
+    &--adaptive{
+        display: none;
+        @include for-md{
+            display: flex;
+        }
+        .call-block__number{
+            @include for-md{
+                text-align: center;
+            }
+        }
+    }
+}
+.button{
+    padding: 19px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    transition: .3s;
+    &--blue{
+        background-color: $blue;
+        color: $white;
+        &:hover{
+            border-color: $blue;
+            color: $blue;
+            background-color: $white;
+        }
+    }
+    &--white{
+        background-color: $white;
+        color: $blue;
+        &:hover{
+            border-color: $white;
+            color: $white;
+            background-color: $blue;
+        }
+    }
+}
+.footer{
+    padding: 70px 0 140px;
+    background-color: $blue;
+    @include for-md{
+        padding-bottom: 100px;
+    }
+    .container{
+        @include for-md{
+            flex-direction: column;
+        }
+    }
+    &__logo{
+        @include for-xl{
+            display: block;
+            max-width: 130px;
+            
+            flex-shrink: 0;
+        }
+        @include for-lit-md{
+            max-width: 155px;
+            height: 139px;
+        }
+        img{
+            @include for-xl{
+                display: block;
+                width: 100%;
+                flex-shrink: 0;
+            }
+            @include for-lit-md{
+                display: block;
+                width: 100%;
+                flex-shrink: 0;
+            }
+        }
+    }
+    &__number{
+        margin-left: 200px;
+        font-size: 48px;
+        line-height: 51px;
+        @include for-xl{
+            margin-left: 0;
+        }
+        @include for-md{
+            margin-top: 75px;
+            margin-left: 0;
+            font-size: 40px;
+            line-height: 43px;
+        }
+        @include for-lit-mob{
+            font-size: 37px;
+            line-height: 40px;
+        }
+    }
+    &__button{
+        padding: 29px 27px;
+        font-size: 28.7px;
+        @include for-md{
+            padding: 29px 17px;
+            margin-top: 68px;
+            width: 100%;
+        }
+        @include for-lit-mob{
+            font-size: 24.7px;
+        }
+    }
+    &__menu{
+        margin: 81px auto 0;
+        @include for-md{
+            margin-top: 75px;
+        }
+        a{
+            color: $white;
+            &:hover{
+                color: $white;
+            }
+        }
+        li + li{
+            margin-left: 61px;
+            @include for-xxl{
+                margin-left: 40px;
+            }
+            @include for-md{
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+        ul{
+            a{
+                @include for-xl{
+                    font-size: 18px;
+                    line-height: 18px;
+                }
+            }
+            @include for-md{
+                flex-direction: column;
+            }
+        }
+    }
+}
+.stock{
+    @include for-md{
+        padding-top: 18px;
+    }
+    &__item{
+        display: flex;
+        align-items: center;
+        @include for-md{
+            flex-direction: column;
+        }
+    }
+    &__img-container{
+        display: block;
+        width: 50%;
+        height: 481px;
+        @include for-md{
+            width: 100%;
+            height: auto;
+        }
+    }
+    &__img{
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    &__text-container{
+        padding: 95px 100px 176px 71px;
+        width: 50%;
+        min-height: 481px;
+        box-sizing: border-box;
+        background-color: $blue;
+        @include for-xl{
+            padding-left: 35px;
+        }
+        @include for-md{
+            padding-top: 60px;
+            padding-bottom: 70px;
+            width: 100%;
+            min-height: 0;
+        }
+        @include for-tiny-tablet{
+            padding: 30px 0 25px 10px;
+        }
+    }
+    &__title{
+        display: inline-block;
+        position: relative;
+        padding-bottom: 30px;
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 56px;
+        line-height: 60px;
+        color: $white;
+        letter-spacing: 1.4px;
+        &::after{
+            content: "";
+            position: absolute;
+            height: 9px;
+            width: calc(252px);
+            background-color: $white;
+            left: 0;
+            bottom: 0;
+            transition: .4s;
+            @include for-tiny-tablet{
+                width: 147px;
+                height: 5px;
+            }
+        }
+        &:hover::after{
+            width: calc(100%);
+        }
+        @include for-xl{
+            font-size: 48px;
+            line-height: 53px;
+        }
+        @include for-md{
+            width: 100%;
+        }
+        @include for-tiny-tablet{
+            padding-bottom: 12px;
+            font-size: 23px;
+            line-height: 27px;
+        }
+        
+    }
+    &__text{
+        margin-top: 54px;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 30px;
+        color: $white;
+        letter-spacing: 0.7px;
+        @include for-xl{
+            font-size: 20px;
+            line-height: 24px;
+        }
+        @include for-tiny-tablet{
+            margin-top: 19px;
+            font-size: 17px;
+            line-height: 21px;
+        }
+    }
+    .swiper-button-next{
+        right: 52px;
+        &::after{
+            position: absolute;
+            width: 34px;
+            height: 55px;
+            font-size: 0;
+            background-image: url(../images/slider-buttons/next.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        // @include for-xl{
+        //     top: 75%;
+        // }
+        @include for-md{
+            display: none;
+        }
+    }
+    .swiper-button-prev{
+        left: 52px;
+        &::after{
+            position: absolute;
+            width: 34px;
+            height: 55px;
+            font-size: 0;
+            background-image: url(../images/slider-buttons/prev.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        // @include for-xl{
+        //     top: 75%;
+        // }
+        @include for-md{
+            display: none;
+        }
+    }
+}
+.description{
+    padding: 96px 240px 29px;
+    @include for-xl{
+        padding: 70px 100px 15px;
+    }
+    @include for-md{
+        padding: 70px 0 15px;
+    }
+    @include for-tiny-tablet{
+        padding-top: 31px;
+    }
+    &__row{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    &__container{
+        position: relative;
+        width: 33.3333333%;
+        box-sizing: border-box;
+        margin-bottom: 89px;
+        @include for-md{
+            width: 50%;
+        }
+        @include for-tiny-tablet{
+            margin: 0 auto;
+            width: 100%;
+            padding: 16px 15px 50px;
+            border: 4px solid #f0f0f0;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+    }
+    &__img-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 122px;
+        width: 100%;
+        margin-bottom: 21px;
+        @include for-tiny-tablet{
+            margin-bottom: 17px;
+            height: 70px;
+        }
+    }
+    &__img{
+        display: block;
+        margin: 0 auto;
+        @include for-tiny-tablet{
+            height: 100%;
+        }
+    }
+    &__text{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        @include for-tiny-tablet{
+            height: 100%;
+            font-size: 17px;
+            line-height: 21px;
+            br{
+                display: none;
+            }
+        }
+        
+    }
+    &__list{
+        display: none;
+        margin-top: 22px;
+        @include for-tiny-tablet{
+            display: block;
+        }
+    }
+    &__list-item{
+        text-align: center;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    &__list-item + &__list-item{
+        margin-top: 7px;
+    }
+}
+.title{
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 67px;
+    letter-spacing: 1.6px;
+    @include for-tiny-tablet{
+        font-size: 24px;
+        line-height: 30px;
+    }
+}
+.services{
+    padding: 0 100px 129px;
+    @include for-md{
+        padding: 32px 15px 67px;
+    }
+    &__title{
+        text-align: center;
+    }
+    
+    &__swiper{
+        position: relative;
+        margin-top: 69px;
+        @include for-tiny-tablet{
+            margin-top: 23px;
+        }
+    }
+    .swiper-container{
+        @include for-tiny-tablet{
+            margin-right: -20px;
+        }
+    }
+    .swiper-wrapper{
+        @include for-md{
+            flex-wrap: wrap;
+            transform: none !important;
+            margin-right: -20px;
+        }
+    }
+    .swiper-slide{
+        @include for-md{
+            width: 33.333333% !important;
+            margin-right: 0 !important;
+            margin-bottom: 26px;
+            box-sizing: border-box;
+        }
+    }
+    .swiper-button-next{
+        right: -53px;
+        top: 103px;
+        &::after{
+            position: absolute;
+            width: 34px;
+            height: 55px;
+            font-size: 0;
+            background-image: url(../images/slider-buttons/next-blue.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        @include for-md{
+            display: none;
+        }
+    }
+    .swiper-button-prev{
+        left: -53px;
+        top: 103px;
+        &::after{
+            position: absolute;
+            width: 34px;
+            height: 55px;
+            font-size: 0;
+            background-image: url(../images/slider-buttons/prev-blue.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        @include for-md{
+            display: none;
+        }
+    }
+}
+.services-item{
+    &__img-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 202px;
+        height: 202px;
+        margin: 0 auto 18px;
+        box-sizing: border-box;
+        border: 4px solid transparent;
+        border-radius: 50%;
+        background-color: $light-blue;
+        transition: .3s;
+        &:hover{
+            border-color: $blue;
+        }
+        @include for-md{
+            width: 120px;
+            height: 120px;
+        }
+        @include for-tiny-tablet{
+            width: 65px;
+            height: 65px;
+            margin-bottom: 8px;
+            br{
+                display: none;
+            }
+        }
+    }
+    &__img{
+        @include for-md{
+            height: 70%;
+        }
+    }
+    &__text{
+        display: block;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        letter-spacing: 0.6px;
+        transition: .3s;
+        &:hover{
+            color: $blue;
+        }
+        @include for-tiny-tablet{
+            font-size: 13px;
+            line-height: 14px;
+        }
+        @include for-lit-mob{
+            font-size: 11px;
+
+        }
+    }
+}
+.doctors{
+    padding: 0 185px 100px;
+    @include for-md{
+        padding: 0 0 100px;
+    }
+    @include for-tiny-tablet{
+        padding-bottom: 26px;
+    }
+    &__title{
+        text-align: center;
+    }
+    &__row{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 72px;
+        margin-right: -70px;
+        @include for-md{
+            margin-top: 36px;
+            margin-right: -55px;
+        }
+        @include for-lit-mob{
+            margin-right: -10px;
+        }
+    }
+    
+    &__container{
+        width: 20%;
+        box-sizing: border-box;
+        padding-right: 70px;
+        margin-bottom: 20px;
+        @include for-xl{
+            width: 33.33333333%;
+        }
+        @include for-md{
+            width: 50%;
+            padding-right: 55px;
+            margin: 0 auto 20px;
+        }
+        @include for-lit-mob{
+            padding-right: 10px;
+        }
+    }
+    
+}
+.doctor-item{
+    &__img-container{
+        display: block;
+        height: 318px;
+        width: 223px;
+        margin: 0 auto;
+        @include for-tiny-tablet{
+            height: 202px;
+            width: 140px;
+        }
+        @include for-lit-mob{
+            height: 179px;
+            width: auto;
+        }
+    }
+    &__img{
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+        background-color: #e5e5e5;
+    }
+    &__name{
+        display: block;
+        margin-top: 12px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        letter-spacing: 0.7px;
+        text-align: center;
+        transition: .3s;
+        &:hover{
+            color: $blue;
+            .doctor-item__name-big-font{
+               color: $blue; 
+            }
+            
+        }
+        @include for-tiny-tablet{
+            margin-top: 6px;
+            font-size: 16px;
+            line-height: 16px;
+        }
+    }
+    &__name-big-font{
+        font-size: 28px;
+        line-height: 31px;
+        transition: .3s;
+        @include for-tiny-tablet{
+            font-size: 19px;
+            line-height: 21px;
+        }
+    }
+    &__text{
+        margin-top: 14px;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.4px;
+        text-align: center;
+        @include for-tiny-tablet{
+            margin-top: 10px;
+            font-size: 11px;
+            line-height: 13px;
+            br{
+                display: none;
+            }
+        }
+    }
+}
+.reviews{
+    padding: 0 0 246px;
+    @include for-tiny-tablet{
+        padding-bottom: 50px;
+    }
+    &__swiper{
+        position: relative;
+    }
+    &__title{
+        text-align: center;
+    }
+    &__slide{
+        text-align: center;
+    }
+    &__text{
+        margin: 85px auto 0;
+        padding: 0 435px;
+        text-align: center;
+        font-size: 28px;
+        line-height: 32px;
+        letter-spacing: 0.7px;
+        @include for-xl{
+            padding: 0 200px;
+        }
+        @include for-md{
+            padding: 0 50px;
+        }
+        @include for-tiny-tablet{
+            padding: 0 30px;
+            margin-top: 36px;
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+    &__name{
+        display: block;
+        margin-top: 65px;
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 32px;
+        letter-spacing: 0.7px;
+        @include for-tiny-tablet{
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+    &__date{
+        display: block;
+        margin-top: 37px;
+        @include for-tiny-tablet{
+            margin-top: 5px;
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+    .swiper-button-next{
+        right: 122px;
+        top: 59%;
+        &::after{
+            position: absolute;
+            width: 34px;
+            height: 63px;
+            font-size: 0;
+            background-image: url(../images/slider-buttons/next-thin.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            @include for-tiny-tablet{
+                width: 14px;
+                height: 25px;
+            }
+        }
+        @include for-md{
+            top: 50%;
+            right: 0;
+        }
+    }
+    .swiper-button-prev{
+        left: 122px;
+        top: 59%;
+        &::after{
+            position: absolute;
+            width: 34px;
+            height: 63px;
+            font-size: 0;
+            background-image: url(../images/slider-buttons/prev-thin.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            @include for-tiny-tablet{
+                width: 14px;
+                height: 25px;
+            }
+        }
+        @include for-md{
+            top: 50%;
+            left: 0;
+        }
+    }
+}
+.breadcrumbs{
+    margin-top: 30px;
+    @include for-tiny-tablet{
+        margin-top: 13px;
+    }
+    &__list{
+        display: flex;
+        align-items: center;
+        
+    }
+    &__link{
+        position: relative;
+        display: block;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 23px;
+        padding-right: 37px;
+        margin-right: 26px;
+        &::after{
+            content: "";
+            position: absolute;
+            width: 13px;
+            height: 18px;
+            background-image: url(../images/breadcrumbs/1.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            @include for-tiny-tablet{
+                width: 7px;
+                height: 13px;
+                background-size: contain;
+                background-position: center;
+            }
+        }
+        &--last{
+            color: $light-blue;
+        }
+        @include for-tiny-tablet{
+            padding-right: 20px;
+            margin-right: 10px;
+            font-size: 13px;
+            line-height: 17px;
+        }
+    }
+    &__item:last-child &__link{
+        padding-right: 0;
+        margin-right: 0;
+        &::after{
+            display: none;
+        }
+    }
+}
+.contacs{
+    padding-top: 48px;
+    @include for-tiny-tablet{
+        padding-top: 34px;
+    }
+    &__title{
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 50px;
+        color: #141414;
+        @include for-tiny-tablet{
+            font-size: 24px;
+            line-height: 28px;
+        }
+    }
+    &__subtitle{
+        margin-top: 100px;
+        font-size: 36px;
+        line-height: 40px;
+        font-weight: 500;
+        &--last{
+            margin-top: 140px;
+            font-weight: 700;
+            @include for-md{
+                margin-bottom: 40px;
+            }
+        }
+        @include for-tiny-tablet{
+            margin-top: 30px;
+            font-size: 20px;
+            line-height: 24px;
+        }
+        
+    }
+    &__text{
+        margin-top: 72px;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 32px;
+        &--blue{
+            color: $blue;
+        }
+        &--mt-big{
+            margin-top: 65px !important;
+            @include for-tiny-tablet{
+                margin-top: 35px !important;
+            }
+        }
+        @include for-tiny-tablet{
+            margin-top: 32px;
+            font-size: 16px;
+            line-height: 21px;
+        }
+    }
+    &__text + &__text{
+        margin-top: 41px;
+        @include for-tiny-tablet{
+            margin-top: 17px;
+        }
+    }
+}
+.map{
+    margin-top: 105px;
+    @include for-md{
+        display: none;
+    }
+}
+.about{
+    padding-left: 165px;
+    padding-top: 58px;
+    
+    @include for-xxl{
+        padding-left: 50px;
+    }
+    @include for-md{
+        margin-top: 50px;
+        padding: 0 15px;
+    }
+    @include for-tiny-tablet{
+        margin-top: 25px;
+        padding: 0 8px;
+    }
+    &__title{
+        position: relative;
+        display: block;
+        margin-bottom: 20px;
+        padding-bottom: 30px;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 52px;
+        color: $blue;
+        &::after{
+            content: "";
+            position: absolute;
+            width: 114px;
+            height: 7px;
+            background-color: $blue;
+            bottom: 0;
+            left: 0;
+            @include for-tiny-tablet{
+                width: 19px;
+                height: 4px;
+            }
+        }
+        @include for-tiny-tablet{
+            margin-bottom: 10px;
+            padding-bottom: 0;
+            font-size: 25px;
+            line-height: 28px;
+        }
+    }
+    &__img-container{
+        margin-left: 48px;
+        @include for-xxl{
+            width: 50%;
+        }
+        @include for-md{
+            width: 100%;
+            margin-left: 0;
+            margin-top: 40px;
+        }
+    }
+    &__img{
+        max-width: 100%;
+        @include for-xxl{
+            display: block;
+            width: 100%;
+        }
+        
+        
+    }
+    p{
+        font-size: 28px;
+        line-height: 40px;
+        @include for-md{
+            text-align: center;
+        }
+        @include for-tiny-tablet{
+            font-size: 16px;
+            line-height: 26px;
+        }
+        
+        
+    }
+
+    &__bottom{
+        padding: 120px 0 200px;
+        @include for-md(){
+            padding: 50px 0 120px;
+        }
+    }
+    &__bottom-desc{
+        max-width: 1500px;
+        width: 100%;
+        margin: 0 auto 90px;
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+
+        @include for-md(){
+            font-size: 25px;
+            line-height: 28px;
+            margin-bottom: 45px;
+        }
+        @include for-sm(){
+            font-size: 20px;
+            line-height: 24px;
+        }
+        @include for-tiny-tablet(){
+            font-size: 16px;
+            line-height: 20px;
+            margin-bottom: 30px;
+        }
+    }
+    &__helpfull{
+        margin-bottom: 90px;
+        @include for-md(){
+            margin-bottom: 45px;
+        }
+    }
+}
+.helpfull{
+    text-align: center;
+    &__desc{
+        font-size: 40px;
+        line-height: 43px;
+        font-weight: 700;
+        color: $blue;
+        margin-bottom: 40px;
+
+        @include for-md(){
+            font-size: 30px;
+            line-height: 33px;
+            margin-bottom: 20px;
+        }
+        @include for-sm(){
+            font-size: 22px;
+            line-height: 25px;
+        }
+        @include for-tiny-tablet(){
+            font-size: 17px;
+            line-height: 20px;
+        }
+    }
+
+}
+.other-cateroires{
+    display: flex;
+    justify-content: center;
+    &__link{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 3px solid rgb(230, 230, 230);
+        border-radius: 30px;
+        max-width: 290px;
+        width: 100%;
+        margin: 0 32px;
+        box-sizing: border-box;
+        padding: 78px 20px 30px;
+        font-size: 24px;
+        line-height: 27px;
+        color: $light-blue;
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: center;
+        transition: .3s;
+
+       
+
+        &:hover{
+            opacity: .7;
+            text-decoration: none;
+        }
+
+        @include for-md(){
+            margin: 0 5px;
+            padding: 20px 10px 20px;
+            max-width: calc(33.3% - 10px);
+        }
+
+        @include for-sm(){
+            font-size: 15px;
+            line-height: 18px;
+            padding: 20px 10px 10px;
+        }
+        @include for-tiny-mob(){
+            font-size: 11px;
+            line-height: 14px;
+        }
+        
+          
+    }
+    &__image-container{
+        height: 124px;
+        margin-bottom: 57px;
+        text-align: center;
+        @include for-md(){
+            margin-bottom: 20px;
+            height: auto;
+            height: 100px;
+        }
+        @include for-sm(){
+            height: 50px;
+            margin-bottom: 10px;
+        }
+    }
+    &__image{
+       display: block;
+       width: 100%;
+       height: 100%;
+       object-fit: contain;
+       object-position: center;
+        max-width: 100%;
+    }
+}
+.about-container{
+        display: flex;
+        align-items: center;
+        @include for-md{
+            flex-direction: column;
+        }
+        &--mb{
+            margin-bottom: 23px;
+        }
+        &--text-left{
+            padding-left: 165px;
+            @include for-xl{
+                padding-left: 100px;
+            }
+            @include for-md{
+                padding: 0 20px;
+            }
+            @include for-tiny-tablet{
+                padding: 0 8px;
+            }
+        }
+        &--space-between{
+            justify-content: space-between;
+        }
+        &--text-right{
+            padding-right: 165px;
+            flex-direction: row-reverse;
+            .about__img-container{
+                margin-left: 0;
+                margin-right: 30px;
+                @include for-md{
+                    margin-right: 0;
+                }
+            }
+            @include for-xl{
+                padding-right: 100px;
+            }
+            @include for-md{
+                flex-direction: column;
+                padding: 0 20px;
+            }
+            @include for-tiny-tablet{
+                padding: 0 8px;
+            }
+            
+        }
+        &--align-start{
+            align-items: flex-start;
+            @include for-xl{
+                align-items: center;
+            }
+        }
+        p{
+            text-align: left;
+            font-size: 28px;
+            line-height: 40px;
+            @include for-xxl{
+                width: 50%;
+            }
+            @include for-xl{
+                font-size: 24px;
+                line-height: 32px;
+            }
+            @include for-md{
+                width: 100%;
+            }
+            @include for-tiny-tablet{
+                font-size: 16px;
+                line-height: 26px;
+            }
+        }
+        
+}
+.about-target{
+    padding: 80px 0 87px;
+    margin-top: 63px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 44px;
+    text-align: center;
+    background-color: $blue;
+    color: $white;
+    @include for-xl{
+        br{
+            display: none;  
+        }
+    }
+    @include for-tiny-tablet{
+        padding: 40px 0 30px;
+        font-size: 22px;
+        line-height: 26px;
+    }
+}
+.about-list{
+    padding-left: 165px;
+    padding-top: 100px;
+    @include for-md{
+        display: none;
+        padding-left: 50px;
+    }
+    @include for-tiny-tablet{
+        padding: 0 8px;
+        margin-top: 58px;
+    }
+    &__title{
+        display: none;
+        margin-bottom: 26px;
+        font-size: 22px;
+        line-height: 26px;
+        font-weight: 700;
+        color: $blue;
+        @include for-tiny-tablet{
+            display: block;
+
+        }
+    }
+    &__subtitle{
+        display: none;
+        font-size: 17px;
+        line-height: 20px;
+        @include for-tiny-tablet{
+            display: block;
+        }
+    }
+    &__list{
+        width: 68%;
+        @include for-md{
+            width: 100%;
+        }
+        @include for-tiny-tablet{
+            margin-top: 35px;
+        }
+    }
+    &__first-line{
+        display: block;
+        padding-bottom: 10px;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 31px;
+        color: $blue;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 4px solid $blue;
+            box-sizing: border-box;
+            left: 3px;
+            top: 5px;
+            @include for-tiny-tablet{
+                border-width: 3px;
+            }
+        }
+        @include for-tiny-tablet{
+            padding-bottom: 2px;
+            font-size: 17px;
+            line-height: 22px;
+        }
+    }
+    &__list-item{
+        position: relative;
+        padding-left: 42px;
+        font-size: 24px;
+        line-height: 28px;
+        @include for-tiny-tablet{
+            padding-left: 35px;
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+    &__list-item + &__list-item{
+        margin-top: 45px;
+        @include for-tiny-tablet{
+            margin-top: 34px;
+        }
+    }
+    &--adaptive{
+        display: none;
+        @include for-md{
+            display: block;
+        }
+    }
+}
+.about-img-containers{
+    margin-top: 98px;
+    @include for-tiny-tablet{
+        margin-top: 0;
+    }
+    &__title{
+        margin-top: 55px;
+        margin-bottom: 43px;
+        display: block;
+        font-size: 44px;
+        line-height: 48px;
+        font-weight: 700;
+        color: $blue;
+        @include for-xl{
+            font-size: 35px;
+        }
+        @include for-tiny-tablet{
+            margin-top: 63px;
+            margin-bottom: 17px;
+            font-size: 20px;
+            line-height: 25px;
+        }
+    }
+    p{
+        margin-top: 0;
+        font-size: 24px;
+        
+        max-width: 730px;
+        @include for-xl{
+            font-size: 18px;
+        }
+        @include for-tiny-tablet{
+            font-size: 16px;
+            line-height: 27px;
+        }
+    }
+}
+.about-container + .about-container{
+    margin-top: 78px;
+    @include for-tiny-tablet{
+        margin-top: 47px;
+    }
+}
+
+.button-up{
+    display: none;
+    position: fixed;
+    left: 53px;
+    bottom: 20px;
+    z-index: 9000;
+    cursor: pointer;
+    transition: .3s;
+    @include for-md(){
+        left: 10px;
+    }
+    &:hover{
+        opacity: .7;
+    }
+
+    &__container{
+        display: flex;
+        align-items: center;
+    }
+    &__icon{
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-right: 16px;
+        background: url(../images/upp-icon.png) center center no-repeat $light-blue;
+
+        @include for-md(){
+            height: 46px;
+            width: 46px;
+            background-size: 30%;
+        }
+    }
+    &__text{
+        font-size: 20px;
+        line-height: 25px;
+        color: $light-blue;
+        font-weight: bold;
+        @include for-md(){
+            font-size: 15px;
+            line-height: 18px;
+        }
+    }
+}
