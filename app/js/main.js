@@ -30,7 +30,7 @@ $(".nav-toggle").click(function() {
     var events_slider = new Swiper(this, {
       slidesPerView: 'auto',
     loopedSlides:40,
-    slidesPerView: 6,
+    slidesPerView: 3,
     spaceBetween: 80,
     autoplay:true,
     navigation: {
@@ -39,21 +39,10 @@ $(".nav-toggle").click(function() {
     },
     breakpoints: {
       1024: {
-        slidesPerView: 3,
-        spaceBetween: 80,
-      },
-      1300: {
-        slidesPerView: 4,
-        spaceBetween: 80,
-      },
-      1600: {
-        slidesPerView: 5,
-        spaceBetween: 80,
-      },
-      1800: {
         slidesPerView: 6,
-        spaceBetween: 80,
+        spaceBetween: 40,
       },
+      
     } 
   });
   });
@@ -93,10 +82,20 @@ $(".nav-toggle").click(function() {
   
 
   
-$('.call-block__button,.footer__button').click(function(){
+$('.call-block__button,.footer__button,.services-template__button').click(function(){
   $("#call-modal").arcticmodal()
    });
 
    $(".numbox").mask("+7 (999) 999 99 99");
 
+   $(".price-page__open").click(function() {
+    $(this).toggleClass("opened"); 
+    $(this).next().slideToggle();
+  });
 
+  $('.photos__gallery').masonry({
+    // options
+    itemSelector: '.photos__gallery-item',
+    columnWidth: '.photos__gallery-item-size',
+    percentPosition: true,
+  });
