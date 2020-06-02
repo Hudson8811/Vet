@@ -1572,16 +1572,12 @@ header{
             text-align: left;
             font-size: vw(28);
             line-height: vw(40);
-            @include for-xxl{
-                width: 50%;
-            }
+           
             // @include for-xl{
             //     font-size: 24px;
             //     line-height: 32px;
             // }
-            @include for-md{
-                width: 100%;
-            }
+           
             @include for-tiny-tablet{
                 font-size: 16px;
                 line-height: 26px;
@@ -1723,7 +1719,7 @@ header{
     @include for-tiny-tablet{
         margin-top: 0;
     }
-    &__title{
+    h2{
         margin-top: vw(55);
         margin-bottom: vw(43);
         display: block;
