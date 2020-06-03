@@ -563,12 +563,11 @@ header{
         // }
         @include for-md{
             width: 100%;
-        }
-        @include for-tiny-tablet{
             padding-bottom: 12px;
             font-size: 23px;
             line-height: 27px;
         }
+
         
     }
     &__text{
@@ -582,7 +581,7 @@ header{
         //     font-size: 20px;
         //     line-height: 24px;
         // }
-        @include for-tiny-tablet{
+        @include for-md(){
             margin-top: 19px;
             font-size: 17px;
             line-height: 21px;
@@ -689,7 +688,7 @@ header{
         font-size: vw(24);
         line-height: vw(28);
         text-align: center;
-        @include for-tiny-tablet{
+        @include for-md(){
             height: 100%;
             font-size: 17px;
             line-height: 21px;
@@ -1014,7 +1013,7 @@ header{
         line-height: vw(20);
         letter-spacing: vw(0.4);
         text-align: center;
-        @include for-tiny-tablet{
+        @include for-md(){
             margin-top: 10px;
             font-size: 11px;
             line-height: 13px;
@@ -1331,12 +1330,12 @@ header{
             background-color: $blue;
             bottom: 0;
             left: 0;
-            @include for-tiny-tablet{
+            @include for-md(){
                 width: 19px;
                 height: 4px;
             }
         }
-        @include for-tiny-tablet{
+        @include for-md(){
             margin-bottom: 10px;
             padding-bottom: 5px;
             font-size: 25px;
@@ -1369,11 +1368,10 @@ header{
         line-height: vw(40);
         @include for-md{
             text-align: center;
-        }
-        @include for-tiny-tablet{
             font-size: 16px;
             line-height: 26px;
         }
+        
         
         
     }
@@ -1470,14 +1468,15 @@ header{
 
         @include for-md(){
             border-radius: 30px;
+            font-size: 15px;
+            line-height: 18px;
             margin: 0 5px;
             padding: 20px 10px 20px;
             max-width: calc(33.3% - 10px);
         }
 
         @include for-sm(){
-            font-size: 15px;
-            line-height: 18px;
+            
             padding: 20px 10px 10px;
         }
         @include for-tiny-mob(){
@@ -1584,7 +1583,7 @@ header{
             //     line-height: 32px;
             // }
            
-            @include for-tiny-tablet{
+            @include for-md(){
                 font-size: 16px;
                 line-height: 26px;
             }
@@ -1605,7 +1604,7 @@ header{
     //         display: none;  
     //     }
     // }
-    @include for-tiny-tablet{
+    @include for-md(){
         padding: 40px 0 30px;
         font-size: 22px;
         line-height: 26px;
@@ -1642,7 +1641,7 @@ header{
         display: none;
         font-size: vw(17);
         line-height: vw(20);
-        @include for-tiny-tablet{
+        @include for-md(){
             display: block;
             font-size: 16px;
             line-height: 20px;
@@ -1651,6 +1650,7 @@ header{
     &__list{
         width: 68%;
         @include for-md{
+            margin-top: 20px;
             width: 100%;
         }
         @include for-tiny-tablet{
@@ -1738,7 +1738,7 @@ header{
         // @include for-xl{
         //     font-size: 35px;
         // }
-        @include for-tiny-tablet{
+        @include for-md(){
             margin-top: 63px;
             margin-bottom: 17px;
             font-size: 20px;
@@ -1752,7 +1752,7 @@ header{
         // @include for-xl{
         //     font-size: 18px;
         // }
-        @include for-tiny-tablet{
+        @include for-md(){
             font-size: 16px;
             line-height: 27px;
             max-width: 100%;
@@ -2619,7 +2619,8 @@ header{
         display: block;
         margin-right: vw(77);
         width: vw(643);
-        @include for-sm{
+        @include for-md{
+            width: 100%;
             margin-right: 0;
             margin-bottom: 20px;
         }
@@ -3242,7 +3243,7 @@ header{
         font-weight: 700;
         color: $blue;
 
-        @include for-tiny-tablet(){
+        @include for-md(){
             margin-bottom: 10px;
             font-size: 25px;
             line-height: 28px;
@@ -3254,7 +3255,7 @@ header{
         line-height: vw(36);
         margin: vw(40) 0 vw(50);
 
-        @include for-tiny-tablet(){
+        @include for-md(){
             font-size: 16px;
             line-height: 24px;
             margin: 20px 0;
@@ -3278,7 +3279,7 @@ header{
         color: $black;
         margin-bottom: vw(25);
 
-        @include for-tiny-tablet(){
+        @include for-md(){
             font-size: 16px;
             line-height: 24px;
             padding-left: 49px;
@@ -3293,7 +3294,7 @@ header{
             height: vw(7);
             background-color: $blue;
 
-            @include for-tiny-tablet(){
+            @include for-md(){
                 width: 16px;
                 height: 5px;
                 top: 7px;
@@ -3310,7 +3311,7 @@ header{
         font-size: vw(36);
         line-height: vw(40);
         margin-bottom: vw(60);
-        @include for-tiny-tablet(){
+        @include for-md(){
             font-size: 24px;
             line-height: 27px;
             margin-bottom: 20px;
@@ -3357,9 +3358,12 @@ header{
         padding: vw(34) vw(50);
 
         @include for-md(){
+            display: block;
             padding: 25px 17px;
-            margin-top: 68px;
+            text-align: center;
+            margin: 68px auto 0;
             width: 100%;
+            max-width: 300px;
             font-size: 24px;
             line-height: 27px;
         }
@@ -3410,6 +3414,12 @@ header{
         line-height: vw(27);
         color: $white;
         margin-bottom: vw(15);
+
+        @include for-md(){
+            font-size: 20px;
+            line-height: 24px;
+            margin-bottom: 10px;
+        }
     }
     &__item-input{
         display: block;
@@ -3420,6 +3430,11 @@ header{
         padding: 0 vw(20);
         border-radius: 10px;
         width: 100%;
+        @include for-md(){
+            height: 54px;
+            max-width: 510px;
+            padding: 0 20px;
+        }
     }
     &__item-textarea{
         display: block;
@@ -3430,6 +3445,11 @@ header{
         padding: vw(10) vw(20);
         border-radius: 10px;
         width: 100%;
+        @include for-md(){
+            padding: 10px 20px;
+            max-width: 510px;
+            height: 116px;
+        }
     }
     &__button{
         margin-right: auto;
@@ -3438,6 +3458,12 @@ header{
         line-height: vw(31);
         margin-top: vw(48);
         padding: vw(19) vw(57);
+        @include for-md(){
+            font-size: 20px;
+            line-height: 23px;
+            margin-top: 24px;
+            padding: 10px 30px;
+        }
     }
 }
 
